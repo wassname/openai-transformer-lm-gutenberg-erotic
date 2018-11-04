@@ -3,7 +3,7 @@ import ftfy
 import json
 import spacy
 
-from tqdm import tqdm
+from tqdm import tqdm_notebook as tqdm
 
 def get_pairs(word):
     """
@@ -92,7 +92,7 @@ class TextEncoder(object):
     def encode(self, texts, verbose=True):
         texts_tokens = []
         if verbose:
-            for text in tqdm(texts, ncols=80, leave=False):
+            for text in tqdm(texts, ncols=80, mininterval=10, leave=False):
                 text = self.nlp(text_standardize(ftfy.fix_text(text)))
                 text_tokens = []
                 for token in text:

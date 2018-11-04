@@ -2,7 +2,7 @@ import os
 import csv
 import numpy as np
 
-from tqdm import tqdm
+from tqdm import tqdm_notebook as tqdm
 
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
@@ -16,7 +16,7 @@ def _rocstories(path):
         ct1 = []
         ct2 = []
         y = []
-        for i, line in enumerate(tqdm(list(f), ncols=80, leave=False)):
+        for i, line in enumerate(tqdm(list(f), ncols=80, mininterval=10, leave=False)):
             if i > 0:
                 s = ' '.join(line[1:5]) # 4 sentances
                 st.append(s)

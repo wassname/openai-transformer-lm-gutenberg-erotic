@@ -4,9 +4,7 @@ import json
 import time
 from functools import partial
 import numpy as np
-# import tensorflow as tf
-# from tensorflow.python.framework import function
-from tqdm import tqdm
+from tqdm import tqdm_notebook as tqdm
 
 def encode_dataset(*splits, encoder):
     encoded_splits = []
@@ -92,7 +90,7 @@ def iter_data(*datas, n_batch=128, truncate=False, verbose=False, max_batches=fl
         f = sys.stderr
     else:
         f = open(os.devnull, 'w')
-    for i in tqdm(range(0, n, n_batch), total=n//n_batch, file=f, ncols=80, leave=False):
+    for i in tqdm(range(0, n, n_batch), total=n//n_batch, mininterval=10, file=f, ncols=80, leave=False):
         if n_batches >= max_batches: raise StopIteration
         if len(datas) == 1:
             yield datas[0][i:i+n_batch]
