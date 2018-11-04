@@ -1,3 +1,28 @@
+This uses Guntenberg books as source data, and generated the next words. In this example I used ~60 Erotic novels from last century.
+
+The model is a pytorch implementation of OpenAI's Finetuned Transformer Language Model, with pretrained weights.
+
+Example outputs:
+
+
+    Base: rosy buttocks 
+
+    Result: rosy buttocks but noted that his fingers had been already working him into a post mor tem, a replacement for his earlier foray with that unspeakable je ering creature. 
+    " vince ? " 
+    it was his niece, jessica, who had just reached lunch time. she eyed vince warily when she arrived, quickly averting her gaze when he glanced her way. he moved to victoria's side, but she stopped him with a slight gesture. 
+    " eat with me in costume, darling, " she urged, and then recalled the phone call this morning from emily and all the others at the supreme court. nobody had was meeting here after the inquisition, according to the files on the table. there was no way to avoid revealing her visit. 
+    vince nodded his acknowledgment
+
+
+
+    Base: I want you 
+
+    Result: i want you to know in case i'm wrong and you'll show up soon. " 
+    " why do you say that ? " he said. " do you, and everybody in the world, think there's something wrong ? " 
+    she took a drink. " i'll get to that later. listen, i'm sorry for taking you away from your father, " she said. " colleen's a great person, but it's a lot to put on your shoulders, and we already know that. okay, she's a tough lady, you know her. she struggles, she's worried about the ranch, but her love for them gives them what they need. they let her go after a long absence... in her own way, anyway
+
+
+
 # PyTorch implementation of OpenAI's Finetuned Transformer Language Model
 
 This is a PyTorch implementation of the [TensorFlow code](https://github.com/openai/finetune-transformer-lm) provided with OpenAI's paper ["Improving Language Understanding by Generative Pre-Training"](https://blog.openai.com/language-unsupervised/) by Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever.
@@ -27,37 +52,11 @@ To run the classifier training script in [train.py](train.py) you will need in a
 
 You can download the weights of the OpenAI pre-trained version by cloning [Alec Radford's repo](https://github.com/openai/finetune-transformer-lm) and placing the `model` folder containing the pre-trained weights in the present repo.
 
-## Using the pre-trained model as a Transformer Language Model
-The model can be used as a transformer language model with OpenAI's pre-trained weights as follow:
-```python
-from model_pytorch import TransformerModel, load_openai_pretrained_model, DEFAULT_CONFIG
-
-args = DEFAULT_CONFIG
-model = TransformerModel(args)
-load_openai_pretrained_model(model)
-```
-
-This model generates Transformer's hidden states. You can use the `LMHead` class in [model_pytorch.py](model_pytorch.py) to add a decoder tied with the weights of the encoder and get a full language model. You can also use the `ClfHead` class in [model_pytorch.py](model_pytorch.py) to add a classifier on top of the transformer and get a classifier as described in OpenAI's publication. (see an example of both in the `__main__` function of [train.py](train.py))
-
-To use the positional encoder of the transformer, you should encode your dataset using the `encode_dataset()` function of [utils.py](utils.py). Please refer to the beginning of the `__main__` function in [train.py](train.py) to see how to properly define the vocabulary and encode your dataset.
-
-## Fine-tuning the pre-trained model on a classification task
-This model can also be integrated in a classifier as detailed in [OpenAI's paper](https://blog.openai.com/language-unsupervised/). An example of fine-tuning on the ROCStories Cloze task is included with the training code in [train.py](train.py)
-
-The ROCStories dataset can be downloaded from the associated [website](http://cs.rochester.edu/nlp/rocstories/).
-
-As with the [TensorFlow code](https://github.com/openai/finetune-transformer-lm), this code implements the ROCStories Cloze Test result reported in the paper which can be reproduced by running:
-
 ```bash
 python -m spacy download en
-python train.py --dataset rocstories --desc rocstories --submit --analysis --data_dir [path to data here]
 ```
 
-#### First experiments on the ROCStories test set
-Finetuning the PyTorch model for 3 Epochs on ROCStories takes 10 minutes to run on a single NVidia K-80.
+## Fine-tuning the pre-trained model on a classification task
 
-The single run test accuracy of this PyTorch version is 85.84%, while the authors reports a median accuracy with the TensorFlow code of 85.8% and the paper reports a best single run accuracy of 86.5%.
+Use the train.ipynb notebook
 
-The authors implementations uses 8 GPU and can thus accomodate a batch of 64 samples while the present implementation is single GPU and is in consequence limited to 20 instances on a K80 for memory reasons. In our test, increasing the batch size from 8 to 20 samples increased the test accuracy by 2.5 points. A better accuracy may be obtained by using a multi-GPU setting (not tried yet).
-
-The previous SOTA on the ROCStories dataset is 77.6% ("Hidden Coherence Model" of Chaturvedi et al. published in "Story Comprehension for Predicting What Happens Next" EMNLP 2017, which is a very nice paper too!)
