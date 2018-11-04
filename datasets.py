@@ -18,18 +18,21 @@ def _rocstories(path):
         y = []
         for i, line in enumerate(tqdm(list(f), ncols=80, leave=False)):
             if i > 0:
-                s = ' '.join(line[1:5])
-                c1 = line[5]
-                c2 = line[6]
+                s = ' '.join(line[1:5]) # 4 sentances
                 st.append(s)
+
+                c1 = line[5] # 2 possible answers
+                c2 = line[6]
                 ct1.append(c1)
                 ct2.append(c2)
+
+                # correct answer
                 y.append(int(line[-1])-1)
         return st, ct1, ct2, y
 
 def rocstories(data_dir, n_train=1497, n_valid=374):
-    storys, comps1, comps2, ys = _rocstories(os.path.join(data_dir, 'cloze_test_val__spring2016 - cloze_test_ALL_val.csv'))
-    teX1, teX2, teX3, _ = _rocstories(os.path.join(data_dir, 'cloze_test_test__spring2016 - cloze_test_ALL_test.csv'))
+    storys, comps1, comps2, ys = _rocstories(os.path.join(data_dir, 'erotic_gutenberg_TRAIN.csv'))
+    teX1, teX2, teX3, _ = _rocstories(os.path.join(data_dir, 'erotic_gutenberg_VAL.csv'))
     tr_storys, va_storys, tr_comps1, va_comps1, tr_comps2, va_comps2, tr_ys, va_ys = train_test_split(storys, comps1, comps2, ys, test_size=n_valid, random_state=seed)
     trX1, trX2, trX3 = [], [], []
     trY = []
@@ -48,4 +51,5 @@ def rocstories(data_dir, n_train=1497, n_valid=374):
         vaY.append(y)
     trY = np.asarray(trY, dtype=np.int32)
     vaY = np.asarray(vaY, dtype=np.int32)
+    # (stories, answer1, answer2, correct_anser_int)...
     return (trX1, trX2, trX3, trY), (vaX1, vaX2, vaX3, vaY), (teX1, teX2, teX3)
