@@ -2,25 +2,39 @@ This uses Guntenberg books as source data, and generated the next words. In this
 
 The model is a pytorch implementation of OpenAI's Finetuned Transformer Language Model, with pretrained weights.
 
-Example outputs:
+Example of some of the tamer outputs:
 
 
-    Base: rosy buttocks 
+    Base: i want you to want 
 
-    Result: rosy buttocks but noted that his fingers had been already working him into a post mor tem, a replacement for his earlier foray with that unspeakable je ering creature. 
-    " vince ? " 
-    it was his niece, jessica, who had just reached lunch time. she eyed vince warily when she arrived, quickly averting her gaze when he glanced her way. he moved to victoria's side, but she stopped him with a slight gesture. 
-    " eat with me in costume, darling, " she urged, and then recalled the phone call this morning from emily and all the others at the supreme court. nobody had was meeting here after the inquisition, according to the files on the table. there was no way to avoid revealing her visit. 
-    vince nodded his acknowledgment
+    Result: i want you to want to comply with an object which strictly dictates its action. I must have you to myself for a few moments this evening. understand that anything must be accomplished with a bare minimum of intimacy. go to your room and get some sleep. tomorrow morning I will notify you of my orders. " 
+    I obeyed. the old baw d, who was beginning to look at me strangely, made an impulsive appeal to comfort and lust, declaring that she had been dreaming. mabel thus roused me up like a ravenous beast, and swelling with lust, surged forward, said that she must have had a dream, and begged me to lie,
 
 
+    Base: i will never 
 
-    Base: I want you 
+    Result: i will never lay hold of any of it for all eternity. " 
+    his feelings were real and complete as he meditated and communicated his thoughts to his solicitor, for in spite of his original feeling of despair when he had lost mary, there was a renewed kind of love of the old man and he was willing to not allow him to be bought. there was now a separation between him and her ; she would be moved to florence and he would be able to help her. 
+    dominating himself with all the frustrations and struggles of the moment, which still dared not abandon him, he furiously tore into his possession an antique watch which had belonged to
 
-    Result: i want you to know in case i'm wrong and you'll show up soon. " 
-    " why do you say that ? " he said. " do you, and everybody in the world, think there's something wrong ? " 
-    she took a drink. " i'll get to that later. listen, i'm sorry for taking you away from your father, " she said. " colleen's a great person, but it's a lot to put on your shoulders, and we already know that. okay, she's a tough lady, you know her. she struggles, she's worried about the ranch, but her love for them gives them what they need. they let her go after a long absence... in her own way, anyway
+    Base: i will never 
 
+    Result: i will never give him back, that the memory of that ro bot like monster has wrought so much on his daily life, I can not countenance a mere indiscretion that can be forgotten ; and then I refuse to deprive him of the enjoyment of being my own, even if I shall have of putting it out of my mind. 
+    " after the present absence everybody can scarce wait until the day after next, which follows -- the full moon rising, the young man who shares my bed with miss frank land and others, and who has then, in a scheme of male gratification, seized and animated my person and got into bed with me.
+
+    Base: panting, he ripped at her bodice 
+
+    Result: panting, he ripped at her bodice. then suddenly, as if the fiend had torn off his own shirt, he covered her eyes with it ! 
+    and suddenly, in a rage, he went downstairs and left her to her admirers. 
+    it is not difficult to recall dur tal's last terrifying scene in the drawing - room. it was about fifty years ago, when his sympathies were exhausted and he had to sell his property and his house for the bulk of it. now, six years later, he was in a state of complete dread of any change in her character. if he would only give her an ounce of this plain ness...? " any god kind sort. -- - hardly too hardly rarely hardly on al, all the's, on on they heavy. 
+
+    Base: an extraordinarily long neck 
+
+    Result: an extraordinarily long neck began and ended in a little rounded nostrils, and plat ea thed a pleasing shape to meet, in fact, the north fair travelers, who were, as gar ru lous and stag ger ingly lewd as their riders were lewd. miss frank land made an effort not to notice them and made a polite but discreet curtsy, which, although not without distinction, were some measure of its graceful sway. at the same time, she seemed intensely interested in its movement. mrs. eth eri dge, too, had, indeed, the same curious air. when their company, most of them young, and some quite young, took to one
+
+    Base: an extraordinarily long neck  
+
+    Result: an extraordinarily long neck, a broad bust, a well made bust, which he placed on his desk without ceremony : every part of me ar dently desiring it should tremendously fall into the hands of some men, who were of the imagination themselves most interested in the beauties before them. but they were evidently careful not to leave my room. so excit able was the curiosity of them, as they did not wish to compromise my repose, or to disturb the repose which they were made to be in. I was no understand of taste either. yet the idea aroused my inner inquisiti veness to the utmost extent that frustrated me all the more by the appalling retreat hardly about
 
 
 # PyTorch implementation of OpenAI's Finetuned Transformer Language Model
